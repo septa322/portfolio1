@@ -1,4 +1,10 @@
-export interface CalendarState {
+export type TempDate = {
+  month: number
+  year: number
+}
+
+export type CalendarState = {
   selectedDate: string
+  tempDate: TempDate
   isVisible: boolean
 }

@@ -1,5 +1,5 @@
 export function getMonthDays(year: number, month: number) {
-  const daysInMonth = new Date(year, month + 1, 0).getDate()
+  const daysInMonth = new Date(year, month, 0).getDate()
   const offset = getMonthOffset(year, month)
 
   return {
