@@ -6,5 +6,4 @@ export type TempDate = {
 export type CalendarState = {
   selectedDate: string
   tempDate: TempDate
-  isVisible: boolean
 }

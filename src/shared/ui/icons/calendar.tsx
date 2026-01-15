@@ -1,4 +1,4 @@
-export default function CalendarIcon() {
+export default function CalendarIcon({ color }: { color: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +6,7 @@ export default function CalendarIcon() {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className="w-5 h-5 m-1"
+      className={`w-5 h-5 m-1 ${color}`}
     >
       <path
         strokeLinecap="round"

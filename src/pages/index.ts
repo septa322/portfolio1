@@ -1,0 +1,6 @@
+export { HomePage } from './HomePage'
+export { LibPage } from './LibPage'
+export { NotFoundPage } from './NotFoundPage'
+export { ExercisePage } from './LibPage/ExercisePage'
+export { TemplatesPage } from './LibPage/TemplatesPage'
+export { CreateTemplatesPage } from './LibPage/CreateTemplatesPage'

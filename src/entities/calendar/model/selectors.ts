@@ -9,5 +9,3 @@ export const selectCalendar = (state: RootState): CalendarState => state.calenda
 export const selectSelectedDate = (state: RootState): string => state.calendar.selectedDate
 
 export const selectSelectTempDate = (state: RootState): TempDate => state.calendar.tempDate
-
-export const selectIsCalendarVisible = (state: RootState): boolean => state.calendar.isVisible

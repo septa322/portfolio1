@@ -1,8 +1,13 @@
 import { createBrowserRouter } from 'react-router'
 import App from './App'
-import HomePage from '../pages/HomePage/HomePage.ui'
-import LibPage from '../pages/LibPage/LibPage.ui'
-import NotFoundPage from '../pages/NotFoundPage/NotFoundPage.ui'
+import {
+  HomePage,
+  LibPage,
+  NotFoundPage,
+  ExercisePage,
+  TemplatesPage,
+  CreateTemplatesPage,
+} from '../pages'
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +15,15 @@ export const router = createBrowserRouter([
     Component: App,
     children: [
       { index: true, Component: HomePage },
-      { path: 'lib', Component: LibPage },
+      {
+        path: 'lib',
+        Component: LibPage,
+        children: [
+          { index: true, Component: ExercisePage },
+          { path: 'templates', Component: TemplatesPage },
+          { path: 'create-templates', Component: CreateTemplatesPage },
+        ],
+      },
       { path: '*', Component: NotFoundPage },
     ],
   },

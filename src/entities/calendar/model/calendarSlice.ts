@@ -4,7 +4,6 @@ import type { CalendarState, TempDate } from './types'
 const initialState: CalendarState = {
   selectedDate: new Date().toISOString(),
   tempDate: { month: new Date().getMonth(), year: new Date().getFullYear() },
-  isVisible: false,
 }
 
 const calendarSlice = createSlice({
@@ -17,12 +16,9 @@ const calendarSlice = createSlice({
     selectTempDate(state, action: PayloadAction<TempDate>) {
       state.tempDate = action.payload
     },
-    toggleVisible(state) {
-      state.isVisible = !state.isVisible
-    },
   },
 })
 
-export const { selectDate, selectTempDate, toggleVisible } = calendarSlice.actions
+export const { selectDate, selectTempDate } = calendarSlice.actions
 
 export const calendarReducer = calendarSlice.reducer

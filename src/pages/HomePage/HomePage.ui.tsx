@@ -1,14 +1,11 @@
 import Calendar from '../../entities/calendar/ui/Calendar.ui'
-import { StoreProvider } from '../../app/providers/StoreProvider'
 
-export default function HomePage() {
+export function HomePage() {
   return (
-    <StoreProvider>
-      <div className="flex flex-col p-3 min-w-100">
-        <HomePageHeader />
-        <Calendar />
-      </div>
-    </StoreProvider>
+    <div className="flex flex-col p-3 min-w-100">
+      <HomePageHeader />
+      <Calendar />
+    </div>
   )
 }
 

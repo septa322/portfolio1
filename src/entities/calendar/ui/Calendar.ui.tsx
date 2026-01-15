@@ -1,26 +1,24 @@
 import CalendarIcon from '../../../shared/ui/icons/calendar'
 import { getMonthDays } from '../../../shared/lib/getDaysInMonth'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  selectIsCalendarVisible,
-  selectSelectedDate,
-  selectSelectTempDate,
-} from '../model/selectors'
-import { selectDate, selectTempDate, toggleVisible } from '../model/calendarSlice'
+import { selectSelectedDate, selectSelectTempDate } from '../model/selectors'
+import { selectDate, selectTempDate } from '../model/calendarSlice'
 import getFormattedDateFromISO from '../../../shared/lib/getFormattedDateFromISO'
+import { useState } from 'react'
+
+const WEEKDAYS = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
 
 export default function Calendar() {
-  const dispatch = useDispatch()
   const selectedDate = useSelector(selectSelectedDate)
-  const calendarIsOpen = useSelector(selectIsCalendarVisible)
+  const [calendarIsOpen, setCalendarIsOpen] = useState(false)
 
   return (
     <div className="">
       <button
         className="flex items-center w-full h-12 my-2 p-3 rounded-xl cursor-pointer bg-zinc-800 hover:bg-zinc-700"
-        onClick={() => dispatch(toggleVisible())}
+        onClick={() => setCalendarIsOpen(!calendarIsOpen)}
       >
-        <CalendarIcon />
+        <CalendarIcon color={'text-orange-500'} />
         {getFormattedDateFromISO(selectedDate)}
       </button>
       {calendarIsOpen && <CalendarGrid />}
@@ -29,8 +27,6 @@ export default function Calendar() {
 }
 
 function CalendarGrid() {
-  const weekDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
-
   const dispatch = useDispatch()
   const tempDate = useSelector(selectSelectTempDate)
 
@@ -66,7 +62,7 @@ function CalendarGrid() {
         <button onClick={() => handleChangeDate('+')}>&gt;</button>
       </div>
       <div className="grid grid-cols-7 my-3 text-center text-sm text-zinc-400">
-        {weekDays.map((day) => (
+        {WEEKDAYS.map((day) => (
           <div key={day}>{day}</div>
         ))}
       </div>
