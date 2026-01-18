@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Input from '../../../shared/ui/input/Input'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTemplate, updateTemplate } from '../model/templatesSlice'
@@ -6,9 +6,9 @@ import type { Exercise } from '../../exercise/model/types'
 import Button from '../../../shared/ui/button/Button'
 import CloseIcon from '../../../shared/ui/icons/close'
 import LowTabModal from '../../../shared/ui/lowTabModal/LowTabModal'
-import AddExerciseToTemplateForm from './AddExerciseToTemplateForm.ui'
 import { useLocation } from 'react-router'
 import { selectTemplates } from '../model/selector'
+import AddExerciseToForm from '../../../shared/ui/addExerciseToForm/AddExerciseToTemplateForm.ui'
 
 export default function AddTemplateForm() {
   const { state } = useLocation()
@@ -47,7 +47,7 @@ export default function AddTemplateForm() {
       </Button>
       {AddExerciseFormIsVisible && (
         <LowTabModal>
-          <AddExerciseToTemplateForm
+          <AddExerciseToForm
             handleAddExercises={handleAddExercises}
             setAddExerciseFormIsVisible={setAddExerciseFormIsVisible}
           />

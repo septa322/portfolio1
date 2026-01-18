@@ -14,7 +14,6 @@ const colorClasses: Record<ButtonColor, string> = {
 }
 
 export default function Button({ children, color, onClick }: ButtonProps) {
-  console.log(color)
   return (
     <button
       className={`w-full h-13 rounded-xl cursor-pointer ${colorClasses[color]}`}

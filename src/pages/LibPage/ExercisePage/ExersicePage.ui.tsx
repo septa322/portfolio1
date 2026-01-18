@@ -13,7 +13,7 @@ function ExercisePage() {
         Новое упражнение
       </Button>
       <div className="flex flex-col mt-3">
-        <ExerciseList />
+        <ExerciseList deleteBtn={true} />
       </div>
       {addExerciseFormIsVisible && (
         <LowTabModal>

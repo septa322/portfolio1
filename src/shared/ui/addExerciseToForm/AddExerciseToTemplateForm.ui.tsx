@@ -1,18 +1,18 @@
 import { useSelector } from 'react-redux'
-import { selectExercise } from '../../exercise/model/selectors'
-import ExerciseItem from '../../exercise/ui/ExerciseItem.ui'
-import CloseIcon from '../../../shared/ui/icons/close'
-import type { Exercise } from '../../exercise/model/types'
+import { selectExercise } from '../../../entities/exercise/model/selectors'
+import ExerciseItem from '../../../entities/exercise/ui/ExerciseItem.ui'
+import CloseIcon from '../icons/close'
+import type { Exercise } from '../../../entities/exercise/model/types'
 
-type setAddExerciseFormIsVisibleProps = {
+type AddExerciseToFormProps = {
   setAddExerciseFormIsVisible: (value: boolean) => void
   handleAddExercises: (exercise: Exercise) => void
 }
 
-export default function AddExerciseToTemplateForm({
+export default function AddExerciseToForm({
   setAddExerciseFormIsVisible,
   handleAddExercises,
-}: setAddExerciseFormIsVisibleProps) {
+}: AddExerciseToFormProps) {
   const exercises = useSelector(selectExercise)
   return (
     <>
